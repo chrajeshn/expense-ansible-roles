@@ -27,14 +27,14 @@
 
 #if there is changes in configuration only, then you need to restart nginx
 - name: copy backend conf
-  ansible.builtin.templates:
+  ansible.builtin.template:
     src: expens.conf.j2
     dest: /etc/nginx/default.d/expense.conf
   notify:
   - restart nginx
 
 
-- name: restart nginx
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
+# - name: restart nginx
+#   ansible.builtin.service:
+#     name: nginx
+#     state: restarted
