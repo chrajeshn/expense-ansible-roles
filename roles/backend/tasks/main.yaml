@@ -17,27 +17,15 @@
     name: expense
 
 - name: run app pre-requisites
+  tags:
+  - deployment
   ansible.builtin.import_role:
     name: common
-    tasks_from: app-pre-req      
+    tasks_from: app-pre-req
 
-# - name: create app directory
-#   ansible.builtin.file:
-#     path: /app
-#     state: directory
-
-# - name: dowanload backend code
-#   ansible.builtin.get_url:
-#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
-#     dest: /tmp/backend.zip
-
-# - name: unzip backend code
-#   ansible.builtin.unarchive:
-#     src: /tmp/backend.zip
-#     dest: /app
-#     remote_src: yes
-
-- name: install npm dependecies
+- name: install npm dependencies
+  tags:
+  - deployment
   ansible.builtin.command: npm install
   args:
     chdir: /app
