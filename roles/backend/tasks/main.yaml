@@ -19,7 +19,7 @@
 - name: run app pre-requisites
   ansible.builtin.import_role:
     name: common
-    tasks_from: app-pre-reg      
+    tasks_from: app-pre-req      
 
 # - name: create app directory
 #   ansible.builtin.file:
@@ -36,10 +36,6 @@
 #     src: /tmp/backend.zip
 #     dest: /app
 #     remote_src: yes
-
-- name: install npm dependencies
-  tags:
-  - deployment
 
 - name: install npm dependecies
   ansible.builtin.command: npm install
