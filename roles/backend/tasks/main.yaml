@@ -7,7 +7,7 @@
 - name: install nodejs
   ansible.builtin.dnf: #only works from Redhat family.
     name: "{{ item }}"
-    state: installed
+    state: latest
   loop:
   - nodejs
   - mysql
