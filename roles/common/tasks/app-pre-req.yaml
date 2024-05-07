@@ -2,14 +2,12 @@
   ansible.builtin.file:
     path: "{{ app_location }}"
     state: absent
-    remote_src: yes
   #ignore_errors: yes  
 
 - name: create app directory
   ansible.builtin.file:
     path: "{{ app_location }}"
     state: directory
-    remote_src: yes
 
 - name: download and extract code
   ansible.builtin.unarchive:
